@@ -43,17 +43,7 @@ crowbar -b rdp.
 ```
 <img width="393" alt="Screenshot 2024-11-02 161934" src="https://github.com/user-attachments/assets/4cac223e-23da-4f51-bffb-a35bdfed15fb">
 
-
-4️⃣ Configure the Honeypot 🛡️
-Set up Cowrie as an SSH/Telnet honeypot to capture and log brute-force attempts.
-```bash
-sudo apt update
-sudo apt install cowrie
-sudo systemctl start cowrie
-```
-Ensure the honeypot VM is isolated and configured to log attempts in a secure environment.
-
-5️⃣ Run the Attack 🎯
+4️⃣  Run the Attack 🎯
 Execute the brute-force attack with Crowbar, specifying the IP address, protocol, and custom wordlist:
 ```bash
 crowbar -b rdp -U <username path> -C <password path or wordlist> -s <IP Address>
@@ -64,12 +54,12 @@ crowbar -b rdp -U target.txt -C test.txt -s 135.234.96.24/32
 <img width="393" alt="Screenshot 2024-11-02 161934" src="https://github.com/user-attachments/assets/c5b13c2f-7178-41f2-8292-8a78be4ec6a6">
 
 
-6️⃣ Successful Remote Logon ✅
+5️⃣ Successful Remote Logon ✅
 Once you achieve a successful brute force, log in to the target machine using xfreerdp:
 ```bash
 xfreerdp /u:<username> /p:<password> /v:<IP address>
 ```
-7️⃣ Log & Analyze Attempts 📊
+6️⃣ Log & Analyze Attempts 📊
 Import the honeypot logs into Elasticsearch or your preferred SIEM tool for in-depth analysis:
 
 Visualization: Analyze brute-force patterns, frequency, and timing to gain insights into attacker behaviors and response techniques.
